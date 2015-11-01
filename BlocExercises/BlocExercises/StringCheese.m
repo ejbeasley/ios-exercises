@@ -11,13 +11,19 @@
 @implementation StringCheese
 
 - (NSString *) favoriteCheeseStringWithCheese:(NSString *)cheeseName {
-    /* WORK HERE */
-    return nil;
+    
+    return [NSString stringWithFormat: @"My favorite cheese is %@.", cheeseName];
+    
 }
 
 - (NSString *) cheeseNameWithoutCheeseSuffix:(NSString *)cheeseName {
+    NSString *resultString;
     if ([[cheeseName lowercaseString] hasSuffix:@" cheese"]) {
-        /* WORK HERE, ASSUMING `cheeseName` ENDS WITH " cheese" */
+        NSRange suffixRange = [cheeseName rangeOfString:@" cheese"];
+        resultString = [cheeseName
+                                  stringByReplacingCharactersInRange:suffixRange
+                                  withString:cheeseName];
+        
     } else {
         /* WORK HERE, ASSUMING `cheeseName` DOES NOT END WITH " cheese" */
     }
@@ -26,7 +32,7 @@
      (You will learn more about if/else statements in a later checkpoint.)
      */
 
-    return nil;
+    return resultString;
 }
 
 - (NSString *) numberOfCheesesStringWithCheeseCount:(NSUInteger)cheeseCount {
