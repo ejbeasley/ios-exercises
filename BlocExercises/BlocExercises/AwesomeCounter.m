@@ -11,8 +11,23 @@
 @implementation AwesomeCounter
 
 - (NSString *) stringWithNumbersBetweenNumber:(NSInteger)number andOtherNumber: (NSInteger)otherNumber {
-    /* WORK HERE */
-    return @"";
+    NSInteger higherNumber;
+    NSInteger lowerNumber;
+    
+    if (number > otherNumber) {
+        higherNumber = number;
+        lowerNumber = otherNumber;
+    } else {
+        higherNumber = otherNumber;
+        lowerNumber = number;
+    }
+    
+    NSString *numberString = @"";
+    for (long i = (long)lowerNumber; i <= (long)higherNumber; i++) {
+        numberString = [NSString stringWithFormat: @"%@%ld", numberString, i];
+    }
+    
+    return numberString;
 }
 
 @end
