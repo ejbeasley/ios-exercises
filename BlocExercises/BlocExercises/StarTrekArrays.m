@@ -11,13 +11,16 @@
 @implementation StarTrekArrays
 
 - (NSArray *) arrayOfStarTrekCharactersFromString:(NSString *)characterString {
-    /* WORK HERE */
-    return @[];
+    NSArray *returnArray = [characterString componentsSeparatedByString:@";"];
+    return returnArray;
 }
 
 - (NSString *) stringOfStarTrekCharactersFromArray:(NSArray *)characterArray {
-    /* WORK HERE */
-    return @"";
+    NSString *characterString = @"";
+    for (NSString* character in characterArray){
+        characterString = [NSString stringWithFormat:@"%@;%@", characterString, character];
+    }
+    return characterString;
 }
 
 - (NSArray *) alphabeticallySortedStarTrekCharactersFromArray:(NSArray *)characterArray {
